@@ -1,0 +1,25 @@
+{
+  "name": "com.pixygon.debugtool",
+  "version": "0.5.0",
+  "displayName": "Debug Tool",
+  "description": "Debug Tools for Pixygon",
+  "unity": "2022.1",
+  "unityRelease": "20f1",
+  "documentationUrl": "https://www.pixygon.io/dev/debugTool",
+  "changelogUrl": "https://www.pixygon.io/dev/debugTool/changelog",
+  "licensesUrl": "https://www.pixygon.io/dev/debugTool/license",
+  "dependencies": {
+    "com.unity.textmeshpro": "3.0.6"
+ },
+"hideInEditor": false,
+ "keywords": [
+    "Pixygon",
+    "Debug",
+    "Tool"
+  ],
+  "author": {
+    "name": "Pixygon",
+    "email": "pixygon@pixygon.io",
+    "url": "https://www.pixygon.io"
+  }
+}
