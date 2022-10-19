@@ -30,6 +30,8 @@ namespace Pixygon.DebugTool
             _debugProfiles._camera = CreateNewDebugProfile("Camera");
             _debugProfiles._pixygonApi = CreateNewDebugProfile("PixygonAPI");
             #if UNITY_EDITOR
+            if(!AssetDatabase.IsValidFolder("Assets/Resources/"))
+                AssetDatabase.CreateFolder("Assets/", "Resources");
             AssetDatabase.CreateAsset(_debugProfiles, "Assets/Resources/DebugProfiles.asset");
             #endif
         }
