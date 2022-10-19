@@ -1,7 +1,7 @@
 {
   "name": "com.pixygon.debugtool",
-  "version": "0.5.0",
-  "displayName": "Debug Tool",
+  "version": "0.5.1",
+  "displayName": "Pixygon - Debug Tool",
   "description": "Debug Tools for Pixygon",
   "unity": "2022.1",
   "unityRelease": "20f1",
