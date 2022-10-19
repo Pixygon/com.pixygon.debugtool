@@ -11,7 +11,8 @@ namespace Pixygon.DebugTool
     public class Log : MonoBehaviour {
 
         private static DebugProfiles _debugProfiles;
-
+        private const string Prefix = "<Color=#FF00FF><Bold>{Pixygon Debug Tool}</Bold></color>";
+        
         private static void LoadDebugProfile() {
             _debugProfiles = Resources.Load<DebugProfiles>("DebugProfiles");
             if (_debugProfiles == null)
@@ -19,6 +20,7 @@ namespace Pixygon.DebugTool
         }
 
         private static void CreateDebugProfiles() {
+            Debug.Log($"{Prefix}: Couldn't find DebugProfiles, creating new one...");
             _debugProfiles = ScriptableObject.CreateInstance<DebugProfiles>();
             _debugProfiles._addressable = CreateNewDebugProfile("Addressables");
             _debugProfiles._tablet = CreateNewDebugProfile("Tablet");
@@ -30,10 +32,12 @@ namespace Pixygon.DebugTool
             _debugProfiles._camera = CreateNewDebugProfile("Camera");
             _debugProfiles._pixygonApi = CreateNewDebugProfile("PixygonAPI");
             #if UNITY_EDITOR
-            if(!AssetDatabase.IsValidFolder("Assets/Resources/"))
-                AssetDatabase.CreateFolder("Assets/", "Resources");
+            if(!AssetDatabase.IsValidFolder("Assets/Resources"))
+                AssetDatabase.CreateFolder("Assets", "Resources");
             AssetDatabase.CreateAsset(_debugProfiles, "Assets/Resources/DebugProfiles.asset");
+            Debug.Log($"{Prefix}: Saved DebugProfiles to Resources!");
             #endif
+            Debug.Log($"{Prefix}: DebugProfiles created!");
         }
 
         private static DebugProfile CreateNewDebugProfile(string prefix) {
@@ -42,6 +46,15 @@ namespace Pixygon.DebugTool
             profile._prefixColor = Random.ColorHSV();
             profile._hexColor = "#"+ColorUtility.ToHtmlStringRGBA(profile._prefixColor);
             profile._showLogs = true;
+            
+            #if UNITY_EDITOR
+            if(!AssetDatabase.IsValidFolder("Assets/_DataObjects"))
+                AssetDatabase.CreateFolder("Assets", "_DataObjects");
+            if(!AssetDatabase.IsValidFolder("Assets/_DataObjects/DebugProfiles"))
+                AssetDatabase.CreateFolder("Assets/_DataObjects", "DebugProfiles");
+            AssetDatabase.CreateAsset(_debugProfiles, $"Assets/_DataObjects/DebugProfiles/{prefix}.asset");
+            //Debug.Log("Pixygon Debug Tool: Saved DebugProfiles to Resources!");
+            #endif
             return profile;
         }
 
