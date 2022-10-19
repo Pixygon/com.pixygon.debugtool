@@ -8,7 +8,7 @@ namespace Pixygon.DebugTool {
         public string _prefix;
         public Color _prefixColor;
         public string _hexColor;
-        public string GetPrefix => $"<Color={_hexColor}>{_prefix}</color>: ";
+        public string GetPrefix => $"<Color={_hexColor}><b>{_prefix}</b></color>: ";
         
         private void OnValidate() {
             _hexColor = "#"+ColorUtility.ToHtmlStringRGBA(_prefixColor);
