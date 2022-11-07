@@ -1,22 +1,20 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Pixygon.DebugTool {
     public class Debugger : MonoBehaviour {
 
         public static Debugger _instance;
+        public string _errorText;
+        public string _logText;
+        public string _warningText;
 
-        [FormerlySerializedAs("errorText")] public string _errorText;
-        [FormerlySerializedAs("logText")] public string _logText;
-        [FormerlySerializedAs("warningText")] public string _warningText;
-
+        public ConsoleController Console { get; private set; }
         private void Awake() {
-            if(_instance != null)
-                Destroy(this);
-            else {
-                _instance = this;
-            }
+            if(_instance != null) Destroy(this);
+            else _instance = this;
+            Console = GetComponent<ConsoleController>();
+            gameObject.AddComponent<Analyzer>();
         }
 
         private void OnEnable() {
