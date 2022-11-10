@@ -9,6 +9,7 @@ namespace Pixygon.DebugTool {
         Property,
         Camera,
         PixygonApi,
-        PixygonMicro
+        PixygonMicro,
+        Effects
     }
 }

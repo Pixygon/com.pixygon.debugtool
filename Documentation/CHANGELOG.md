@@ -1,6 +1,9 @@
 # Changelog 
 ## Pixygon - Debug Tool
 
+## 0.5.4
+- Added Effects to DebugGroups
+
 ## 0.5.3
 ### Added
 - Added console

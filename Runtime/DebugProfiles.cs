@@ -14,5 +14,6 @@ namespace Pixygon.DebugTool {
         public DebugProfile _camera;
         public DebugProfile _pixygonApi;
         public DebugProfile _pixygonMicro;
+        public DebugProfile _effects;
     }
 }

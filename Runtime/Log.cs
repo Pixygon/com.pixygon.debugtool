@@ -26,6 +26,7 @@ namespace Pixygon.DebugTool
                 DebugGroup.Camera => _debugProfiles._camera,
                 DebugGroup.PixygonApi => _debugProfiles._pixygonApi,
                 DebugGroup.PixygonMicro => _debugProfiles._pixygonMicro,
+                DebugGroup.Effects => _debugProfiles._effects,
                 _ => throw new ArgumentOutOfRangeException(nameof(group), group, null)
             };
 
