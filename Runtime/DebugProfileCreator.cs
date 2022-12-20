@@ -84,6 +84,9 @@ namespace Pixygon.DebugTool
                 case DebugGroup.PixygonMicro:
                     profiles._pixygonMicro = profile;
                     break;
+                case DebugGroup.Effects:
+                    profiles._effects = profile;
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(group), group, null);
             }
