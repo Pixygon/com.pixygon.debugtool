@@ -23,6 +23,7 @@ namespace Pixygon.DebugTool
             profile._property = CreateNewDebugProfile("Property");
             profile._camera = CreateNewDebugProfile("Camera");
             profile._pixygonApi = CreateNewDebugProfile("PixygonAPI");
+            profile._effects = CreateNewDebugProfile("Effects");
             #if UNITY_EDITOR
             if(!AssetDatabase.IsValidFolder("Assets/Resources"))
                 AssetDatabase.CreateFolder("Assets", "Resources");
@@ -88,7 +89,9 @@ namespace Pixygon.DebugTool
                     profiles._effects = profile;
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(group), group, null);
+                    Debug.Log("Missing profile-group: " + group);
+                    break;
+                    //throw new ArgumentOutOfRangeException(nameof(group), group, null);
             }
 #if UNITY_EDITOR
             EditorUtility.SetDirty(profiles);
