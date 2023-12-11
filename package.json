@@ -9,7 +9,6 @@
   "changelogUrl": "https://www.pixygon.io/dev/debugTool/changelog",
   "licensesUrl": "https://www.pixygon.io/dev/debugTool/license",
   "dependencies": {
-    "com.unity.textmeshpro": "3.0.6",
     "com.unity.inputsystem": "1.4.4"
  },
 "hideInEditor": false,
